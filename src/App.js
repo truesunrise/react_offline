@@ -16,12 +16,13 @@ class App extends React.Component{
   constructor() {
     super();
     this.handleRemovePlayer = this.handleRemovePlayer.bind(this);
+    this.handleChageScore = this.handleChageScore.bind(this);
   }
   render() {
     return (
       <div className="scoreboard">
         <Header title="My Scoreboard" totalPlayers={11}/>   {/* "11" <-이렇게 넘기면 스트링 타입으로 넘어감! */}
-        { this.state.players.map(player => <Player name={player.name} key={player.id} id={player.id} score={player.score} removePlayer={this.handleRemovePlayer}/>) }
+        { this.state.players.map(player => <Player name={player.name} key={player.id} id={player.id} score={player.score} changeScore={this.handleChageScore} removePlayer={this.handleRemovePlayer} />) }
       </div>
     )
   }
@@ -42,6 +43,20 @@ class App extends React.Component{
     this.setState(prevState => {
       const players = prevState.players.filter(player => player.id !== id)
       return {players}   // 쇼텐더 프로퍼티 : 키와 밸류가 같으면 생략해도 된다.
+    })
+  }
+
+  handleChageScore(id, delta) {   // id: player가 누군지 알려주는 값
+    console.log(id, delta);
+    this.setState(prevState => {
+      // id에 해당되는 player를 찾은 다음 score에 delta를 더 한다.
+      const players = [ ...prevState.players ];
+      prevState.players.forEach(player => {
+        if(player.id === id) {
+          player.score += delta;
+        }
+      })
+      return {playesr: players}
     })
   }
 }
