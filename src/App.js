@@ -21,7 +21,7 @@ class App extends React.Component{
   render() {
     return (
       <div className="scoreboard">
-        <Header title="My Scoreboard" totalPlayers={11}/>   {/* "11" <-이렇게 넘기면 스트링 타입으로 넘어감! */}
+        <Header title="My Scoreboard" totalPlayers={11} players={this.state.players}/>   {/* "11" <-이렇게 넘기면 스트링 타입으로 넘어감! */}
         { this.state.players.map(player => <Player name={player.name} key={player.id} id={player.id} score={player.score} changeScore={this.handleChageScore} removePlayer={this.handleRemovePlayer} />) }
       </div>
     )
