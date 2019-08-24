@@ -1,23 +1,7 @@
 import React from 'react';
 import './App.css';
+import { Header } from './components/Header';
 
-
-// 함수이름 : 대문자
-// 반드시 리액트 엘리먼트를 리턴
-// 함수 표현식을 쓰는 것을 권장
-const Header = ({title, totalPlayers}) => {
-  // props는 readonly 속성이 있다. 부모에게서 받은 props를 자식이 바꿀 수 없다.
-  // 프롭스는 위에서부터 아래로 흐른다. 중간에 프롭스를 바꾸게되면 밑으로는 흐르지만 위는 안바뀜. 프롭스는 반드시 부모컴포넌트가 바꾸어야함.
-
-  // props객체의 각 키에 해당되는 값이 해체되어 각 키에 들어감
-  // const {title, totalPlayers} = props;
-  return (
-    <header className="header">
-      <h1 className="h1">{title}</h1>
-      <span className="stats">Players: {totalPlayers}</span>
-    </header>
-  )
-}
 
 // 부모가 같은 메서드를 다시 '재정의'해서 쓰는것 = 오버라이딩
 class Count extends React.Component {   // 리액트 컴포넌트 클래스의 모든 속성과 메서드를 물려받겠다.
