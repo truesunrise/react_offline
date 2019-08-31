@@ -1,5 +1,6 @@
 import React from 'react';
 import {Stats} from "./Stats";
+import {Stopwatch} from "./Stopwatch";
 // name export
 
 // 함수이름 : 대문자
@@ -16,6 +17,7 @@ export const Header = ({title, totalPlayers, players}) => {
       <Stats players={players}/>
       <h1 className="h1">{title}</h1>
       <span className="stats">Players: {totalPlayers}</span>
+      <Stopwatch/>
     </header>
   )
 }
