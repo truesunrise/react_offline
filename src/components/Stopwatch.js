@@ -11,13 +11,17 @@ export class Stopwatch extends React.Component {
     this.setState(prevState => ({isRunning: !prevState.isRunning}))
   }
 
+  handleReset = () => {
+    this.setState({timer: 0})
+  }
+
   render() {
     return (
       <div className="stopwatch">
         <h2>StopWatch</h2>
         <span className="stopwatch-time">{this.state.timer}</span>
         <button onClick={this.handleStopwatch}>{this.state.isRunning ? 'Stop' : 'Start'}</button>
-        <button>Reset</button>
+        <button onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
