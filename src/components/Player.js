@@ -1,7 +1,7 @@
 import React from 'react';
 import { Count } from './Count';
 
-export class Player extends React.PureComponent {
+export class Player extends React.Component {
   render() {
     console.log(this.props.name, 'rendered');
 
@@ -17,6 +17,14 @@ export class Player extends React.PureComponent {
           changeScore={this.props.changeScore}></Count>
       </div>
     )
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log(nextProps);
+    // sore가 다를 경우만 true return
+    return this.props.score !== nextProps.score
+    // false: update 하지말라
+    //return true;
   }
 }
 
