@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 // 부모가 같은 메서드를 다시 '재정의'해서 쓰는것 = 오버라이딩
@@ -28,4 +29,11 @@ export class Count extends React.Component {   // 리액트 컴포넌트 클래�
       </div>
     )
   }
+}
+
+// 코드의 가독성을 높이기위해 사용됨
+Count.propTypes = {
+  score: PropTypes.number,
+  id: PropTypes.number,
+  chageScore: PropTypes.func
 }
