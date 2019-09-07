@@ -3,6 +3,7 @@ import {Stats} from "./Stats";
 import {Stopwatch} from "./Stopwatch";
 // name export
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
 
 // 함수이름 : 대문자
 // 반드시 리액트 엘리먼트를 리턴
@@ -16,6 +17,7 @@ import PropTypes from 'prop-types';
   return (
     <header className="header">
       <Stats players={players}/>
+      {/* eslint-disable-next-line no-undef */}
       <h1 className="h1">{title}</h1>
       <Stopwatch/>
     </header>
@@ -32,6 +34,8 @@ Header.defaultProps = {
 }
 
 // store의 title을 props로 내려받아서 화면에 표시하기
+const mapStateToProps = (state) => ({
+   title: state.playerReducer.title
+});
 
-
-export default Header;
+export default connect(mapStateToProps)(Header);
