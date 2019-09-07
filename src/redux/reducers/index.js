@@ -1,13 +1,14 @@
 import {combineReducers} from "redux";
+import {playerReducer} from "./players";
 
 export const allReducers = combineReducers({
-  // eslint-disable-next-line no-undef
-  player: playerReducer
+  playerReducer: playerReducer
 })
 
 // 초기 state를 적으시오.
 // {
 //   player: {
 //     title: 'My Scoreboard'
+//     players: { ... }
 //   }
 // }
