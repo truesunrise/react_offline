@@ -3,6 +3,15 @@ import { Count } from './Count';
 import PropTypes from 'prop-types';
 
 export class Player extends React.Component {
+  // 인스턴스마다 모두 동일한 속성을 이용해야할 때, static 키워드 이용
+  static propTypes = {
+    removePlayer: PropTypes.func,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    score: PropTypes.number,
+    changeScore: PropTypes.func
+  }
+
   render() {
     console.log(this.props.name, 'rendered');
 
@@ -29,16 +38,6 @@ export class Player extends React.Component {
     // false: update 하지말라
     //return true;
   }
-}
-
-// 5가지 type 정의
-Player.propTypes = {
-  removePlayer: PropTypes.func,
-  id: PropTypes.number,
-  name: PropTypes.string,
-  score: PropTypes.number,
-  changeScore: PropTypes.func
-
 }
 
 // 중괄호 안에 리턴문 하나 있으니까 리턴문 없앰
