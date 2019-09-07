@@ -12,7 +12,7 @@ export const CustomPlayer = (props) => {
   //
   // };
 
-  let dynamicClass = classNames(styles.svg, { ['styles-isHighScore']: props.isHighScore });
+  let dynamicClass = classNames(styles.svg, { [styles['is-high-score']]: props.isHighScore });
 
   return (
     <Player {...props}>
