@@ -5,7 +5,7 @@ import {CustomPlayer} from "../components/CustomPlayer";
 import AddPlayerForm from "../components/AddPlayerForm";
 
 // Scoreboard.css는 Scordboard 컴포넌트만 적용된게 아니라 글로벌하게 적용
-import './Scoreboard.css';
+import styles from './Scoreboard.module.css';   // 모듈 방식으로 적용
 
 // Container Component
 class Scoreboard extends React.Component{
@@ -32,7 +32,7 @@ class Scoreboard extends React.Component{
 
   render() {
     return (
-      <div className="scoreboard">
+      <div className={styles.scoreboard}>
         <Header title="My Scoreboard" players={this.props.players}/>   {/* "11" <-이렇게 넘기면 스트링 타입으로 넘어감! */}
         { this.props.players.map(player =>
 

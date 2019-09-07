@@ -1,14 +1,18 @@
 import React from 'react';
 import Player from "./Player";
+import classNames from 'classnames';
+
+import styles from '../pages/Scoreboard.module.css';   // 모듈 방식으로 적용
 
 // 상속 받은게 아니고 children으로 새 기능을 포함하여 Player에게 넘겨줌
 export const CustomPlayer = (props) => {
-  let dynamicClass;
-  if(props.isHighScore) {
-    dynamicClass = 'svg is-high-score';
-  } else {
-    dynamicClass = 'svg';
-  }
+  // let dynamicClass = styles.svg;
+  // if(props.isHighScore) {
+  //   dynamicClass += ' ' + styles.isHighScore;
+  //
+  // };
+
+  let dynamicClass = classNames(styles.svg, { ['styles-isHighScore']: props.isHighScore });
 
   return (
     <Player {...props}>

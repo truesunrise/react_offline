@@ -5,6 +5,8 @@ import Stopwatch from "./Stopwatch";
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 
+import styles from '../pages/Scoreboard.module.css';   // 모듈 방식으로 적용
+
 // 함수이름 : 대문자
 // 반드시 리액트 엘리먼트를 리턴
 // 함수 표현식을 쓰는 것을 권장
@@ -15,10 +17,10 @@ import {connect} from "react-redux";
   // props객체의 각 키에 해당되는 값이 해체되어 각 키에 들어감
   // const {title, totalPlayers} = props;
   return (
-    <header className="header">
+    <header className={styles.header}>
       <Stats players={players}/>
       {/* eslint-disable-next-line no-undef */}
-      <h1 className="h1">{title}</h1>
+      <h1 className={styles.h1}>{title}</h1>
       <Stopwatch/>
     </header>
   )

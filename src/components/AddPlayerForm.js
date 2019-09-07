@@ -2,6 +2,10 @@ import React from 'react';
 import {addPlayer} from "../redux/actions";
 import {connect} from "react-redux";
 
+import styles from '../pages/Scoreboard.module.css';   // 모듈 방식으로 적용
+
+
+
  class AddPlayerForm extends React.Component {
   textInput = React.createRef();
 
@@ -24,11 +28,11 @@ import {connect} from "react-redux";
   render() {
     {/* required: 어떠한 값도 입력하지않으면 submit 이벤트 X */}
     return (
-      <form id="form" className="form" onSubmit={this.handleSubmit} noValidate>
-        <input id="players" className="input" type="text" placeholder="enter a player's name"
+      <form id="form" className={styles.form} onSubmit={this.handleSubmit} noValidate>
+        <input id="players" className={styles.input} type="text" placeholder="enter a player's name"
           ref={this.textInput}
           required />
-        <input className="input" type="submit" value="Add Player"/>
+        <input className={styles.input} type="submit" value="Add Player"/>
       </form>
     );
   }

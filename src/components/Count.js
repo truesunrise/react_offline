@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {changeScore} from "../redux/actions";
+import classNames from 'classnames';
 
+import styles from '../pages/Scoreboard.module.css';   // 모듈 방식으로 적용
 
 // 부모가 같은 메서드를 다시 '재정의'해서 쓰는것 = 오버라이딩
 class Count extends React.Component {   // 리액트 컴포넌트 클래스의 모든 속성과 메서드를 물려받겠다.
@@ -23,12 +25,12 @@ class Count extends React.Component {   // 리액트 컴포넌트 클래스의 �
 
   render() {
     return (
-      <div className="counter">
+      <div className={styles.counter}>
         {/*onclick 오른쪽 :*/}
-        <button className="counter-action decrement"
+        <button className={classNames(styles.counterAction, styles.decrement)}
                 onClick={() => this.props.changeScore(this.props.id, -1)}> - </button>
-        <span className="counter-score">{this.props.score}</span>
-        <button className="counter-action increment"
+        <span className={styles.counterScore}>{this.props.score}</span>
+        <button className={classNames(styles.counterAction, styles.increment)}
                 onClick={() => this.props.changeScore(this.props.id, 1)}> + </button>
       </div>
     )

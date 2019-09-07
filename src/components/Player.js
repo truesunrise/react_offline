@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import {changeScore, removePlayer} from "../redux/actions";
 import {connect} from "react-redux";
 
+import styles from '../pages/Scoreboard.module.css';   // 모듈 방식으로 적용
+
 class Player extends React.PureComponent {
   // 인스턴스마다 모두 동일한 속성을 이용해야할 때, static 키워드 이용
   static propTypes = {
@@ -20,9 +22,9 @@ class Player extends React.PureComponent {
     const {removePlayer, id, name, score, changeScore} = this.props;
 
     return (
-      <div className="player">
-      <span className="player-name">
-        <button className="remove-player" onClick={() => removePlayer(id)}> x </button>
+      <div className={styles.player}>
+      <span className={styles.playerName}>
+        <button className={styles.removePlayer} onClick={() => removePlayer(id)}> x </button>
         {this.props.children}
         {name}
       </span>
