@@ -7,8 +7,15 @@ import {CustomPlayer} from "./components/CustomPlayer";
 
 // Container Component
 class App extends React.Component{
-  constructor() {
-    super();
+
+  getHighScore() {
+    let highScore = 0;
+    this.props.players.forEach(player => {
+      if(player.score > highScore) {
+        highScore = player.score;
+      }
+    });
+    return highScore;
   }
 
   render() {
@@ -20,6 +27,7 @@ class App extends React.Component{
           <CustomPlayer name={player.name} key={player.id}
                   id={player.id}
                   score={player.score}
+                  isHighScore={player.score === this.getHighScore()}
                    />) }
           {/* 2) 콜백 펑션을 props로 내려주기 */}
           <AddPlayerForm />
