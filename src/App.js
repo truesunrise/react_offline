@@ -12,7 +12,17 @@ class App extends React.Component{
     let highScore = 0;
     this.props.players.forEach(player => {
       if(player.score > highScore) {
+        console.log('***********************************');
+
+        console.log('player.score: ', player.score);
+        console.log('highScore: ', highScore);
+
         highScore = player.score;
+
+        console.log('highScore: ', highScore);
+        console.log('============================');
+
+
       }
     });
     return highScore;

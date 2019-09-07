@@ -5,7 +5,7 @@ import Player from "./Player";
 export const CustomPlayer = (props) => {
   let dynamicClass;
   if(props.isHighScore) {
-    dynamicClass = 'svg is-high-score'
+    dynamicClass = 'svg is-high-score';
   } else {
     dynamicClass = 'svg';
   }
