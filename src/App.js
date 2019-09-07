@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
-import Player from './components/Player'
 import AddPlayerForm from "./components/AddPlayerForm";
 import {connect} from "react-redux";
+import {CustomPlayer} from "./components/CustomPlayer";
 
 // Container Component
 class App extends React.Component{
@@ -17,7 +17,7 @@ class App extends React.Component{
         <Header title="My Scoreboard" players={this.props.players}/>   {/* "11" <-이렇게 넘기면 스트링 타입으로 넘어감! */}
         { this.props.players.map(player =>
 
-          <Player name={player.name} key={player.id}
+          <CustomPlayer name={player.name} key={player.id}
                   id={player.id}
                   score={player.score}
                    />) }
