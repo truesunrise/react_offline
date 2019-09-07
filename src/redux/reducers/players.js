@@ -1,4 +1,4 @@
-import {ADD_PLAYER, CHANGE_SCORE} from "../actionTypes";
+import {ADD_PLAYER, CHANGE_SCORE, REMOVE_PLAYER} from "../actionTypes";
 
 let maxId = 4;
 
@@ -19,7 +19,7 @@ export const playerReducer = (state = playerInitialState, action) => {
       // 기존 players에 name을 가진 player 객체를 추가
       state.players.push({name: action.name, score: 0, id: ++maxId});
       return {
-        ... state,
+        ...state,
         players: [
           ...state.players
         ]
@@ -31,7 +31,17 @@ export const playerReducer = (state = playerInitialState, action) => {
         }
       })
       return {
-        ... state,
+        ...state,
+        players: [
+          ...state.players
+        ]
+      }
+    case REMOVE_PLAYER:
+      const index = state.players.findIndex(player => player.id === action.id);
+      // 앞에 추가: unshift, 뒤에 추가: push, 중간에 추가: splice
+      state.players.splice(index, 1);
+      return {
+        ...state,
         players: [
           ...state.players
         ]

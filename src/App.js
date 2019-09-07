@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
-import { Player } from './components/Player'
+import Player from './components/Player'
 import AddPlayerForm from "./components/AddPlayerForm";
 import {connect} from "react-redux";
 
@@ -9,7 +9,6 @@ import {connect} from "react-redux";
 class App extends React.Component{
   constructor() {
     super();
-    this.handleRemovePlayer = this.handleRemovePlayer.bind(this);
   }
 
   render() {
@@ -21,7 +20,7 @@ class App extends React.Component{
           <Player name={player.name} key={player.id}
                   id={player.id}
                   score={player.score}
-                  removePlayer={this.handleRemovePlayer} />) }
+                   />) }
           {/* 2) 콜백 펑션을 props로 내려주기 */}
           <AddPlayerForm />
       </div>
@@ -37,15 +36,15 @@ class App extends React.Component{
       })
     }*/
 
-  handleRemovePlayer(id) {  // 애로우 함수 쓰게되면 자기자신을 가리키는 렉셔널 디스가 됨
-    console.log(this);
-    // 삭제로직
-    console.log('handleRemovePlayer', id);
-    this.setState(prevState => {
-      const players = prevState.players.filter(player => player.id !== id)
-      return {players}   // 쇼텐더 프로퍼티 : 키와 밸류가 같으면 생략해도 된다.
-    })
-  }
+  // handleRemovePlayer(id) {  // 애로우 함수 쓰게되면 자기자신을 가리키는 렉셔널 디스가 됨
+  //   console.log(this);
+  //   // 삭제로직
+  //   console.log('handleRemovePlayer', id);
+  //   this.setState(prevState => {
+  //     const players = prevState.players.filter(player => player.id !== id)
+  //     return {players}   // 쇼텐더 프로퍼티 : 키와 밸류가 같으면 생략해도 된다.
+  //   })
+  // }
 
   // handleChageScore(id, delta) {   // id: player가 누군지 알려주는 값
   //   console.log(id, delta);

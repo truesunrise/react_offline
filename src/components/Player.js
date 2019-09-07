@@ -1,8 +1,10 @@
 import React from 'react';
 import Count from './Count';
 import PropTypes from 'prop-types';
+import {changeScore, removePlayer} from "../redux/actions";
+import {connect} from "react-redux";
 
-export class Player extends React.Component {
+class Player extends React.Component {
   // 인스턴스마다 모두 동일한 속성을 이용해야할 때, static 키워드 이용
   static propTypes = {
     removePlayer: PropTypes.func,
@@ -26,7 +28,7 @@ export class Player extends React.Component {
       <Count
         score={score}
         id={id}
-        changeScore={changeScore}></Count>
+        ></Count>
       </div>
     )
   }
@@ -58,3 +60,9 @@ export const Player = (props) => {
     </div>
   )
 }*/
+
+const mapActionToProps = (dispatch) => ({   // 부모의 state
+  removePlayer: (id) => dispatch(removePlayer(id))
+});
+
+export default connect(null, mapActionToProps)(Player);
