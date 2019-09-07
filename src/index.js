@@ -4,7 +4,6 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
 import {Root} from "./pages/Root";
-import App from "./App";
 
 // from 없이 import하면 하위 컴포넌트에서 import 하더라도 글로벌적으로 적용된다.
 import 'bootstrap/dist/css/bootstrap.css';
