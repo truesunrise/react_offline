@@ -1,5 +1,5 @@
 import React from 'react';
-import { Count } from './Count';
+import Count from './Count';
 import PropTypes from 'prop-types';
 
 export class Player extends React.Component {

@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
+import {changeScore} from "../redux/actions";
 
 
 // 부모가 같은 메서드를 다시 '재정의'해서 쓰는것 = 오버라이딩
-export class Count extends React.Component {   // 리액트 컴포넌트 클래스의 모든 속성과 메서드를 물려받겠다.
+class Count extends React.Component {   // 리액트 컴포넌트 클래스의 모든 속성과 메서드를 물려받겠다.
 
   /*  constructor() {
       super();  // 부모 생성자 함수 호출해서 속성 초기화
@@ -23,9 +25,11 @@ export class Count extends React.Component {   // 리액트 컴포넌트 클래�
     return (
       <div className="counter">
         {/*onclick 오른쪽 :*/}
-        <button className="counter-action decrement" onClick={() => this.props.changeScore(this.props.id, -1)}> - </button>
+        <button className="counter-action decrement"
+                onClick={() => this.props.changeScore(this.props.id, -1)}> - </button>
         <span className="counter-score">{this.props.score}</span>
-        <button className="counter-action increment" onClick={() => this.props.changeScore(this.props.id, 1)}> + </button>
+        <button className="counter-action increment"
+                onClick={() => this.props.changeScore(this.props.id, 1)}> + </button>
       </div>
     )
   }
@@ -37,3 +41,9 @@ Count.propTypes = {
   id: PropTypes.number,
   chageScore: PropTypes.func
 }
+
+const mapActionToProps = (dispatch) => ({   // 부모의 state
+  changeScore: (id, delta) => dispatch(changeScore(id, delta))
+});
+
+export default connect(null, mapActionToProps)(Count);

@@ -10,7 +10,6 @@ class App extends React.Component{
   constructor() {
     super();
     this.handleRemovePlayer = this.handleRemovePlayer.bind(this);
-    this.handleChageScore = this.handleChageScore.bind(this);
   }
 
   render() {
@@ -22,7 +21,6 @@ class App extends React.Component{
           <Player name={player.name} key={player.id}
                   id={player.id}
                   score={player.score}
-                  changeScore={this.handleChageScore}
                   removePlayer={this.handleRemovePlayer} />) }
           {/* 2) 콜백 펑션을 props로 내려주기 */}
           <AddPlayerForm />
@@ -49,19 +47,19 @@ class App extends React.Component{
     })
   }
 
-  handleChageScore(id, delta) {   // id: player가 누군지 알려주는 값
-    console.log(id, delta);
-    this.setState(prevState => {
-      // id에 해당되는 player를 찾은 다음 score에 delta를 더 한다.
-      const players = [ ...prevState.players ];
-      prevState.players.forEach(player => {
-        if(player.id === id) {
-          player.score += delta;
-        }
-      })
-      return {playesr: players}
-    })
-  }
+  // handleChageScore(id, delta) {   // id: player가 누군지 알려주는 값
+  //   console.log(id, delta);
+  //   this.setState(prevState => {
+  //     // id에 해당되는 player를 찾은 다음 score에 delta를 더 한다.
+  //     const players = [ ...prevState.players ];
+  //     prevState.players.forEach(player => {
+  //       if(player.id === id) {
+  //         player.score += delta;
+  //       }
+  //     })
+  //     return {playesr: players}
+  //   })
+  // }
 
   // 1) 콜백 펑션 정의
   // handleAddPlayer = (name) => {
