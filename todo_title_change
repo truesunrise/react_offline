@@ -1,0 +1,16 @@
+* actionType 정의
+
+* actionCreator 만들기
+=> props 이름과 동일하게
+
+* 매핑
+const mapActionToProps = (dispatch) => ({   // 부모의 state
+  changeTitle: (title) => dispatch(changeTitle(title))
+});
+
+export default connect(null, mapActionToProps)(Stopwatch);
+
+* reducer 로직 추가
+
+* props 호출부분 정의
+<button onClick={() => changeTitle(title)}>title change</button>

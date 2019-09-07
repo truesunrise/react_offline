@@ -1,6 +1,6 @@
 import React from 'react';
 import {Stats} from "./Stats";
-import {Stopwatch} from "./Stopwatch";
+import Stopwatch from "./Stopwatch";
 // name export
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
